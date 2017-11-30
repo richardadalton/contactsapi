@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", False)
+DEBUG = os.environ.get("DEBUG", True)
 
 ALLOWED_HOSTS = ["127.0.0.1"]
 ALLOWED_HOSTS.append(os.environ.get("HOST"))
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'contacts',
     'rest_framework',
     'rest_framework.authtoken',
-    'corsheaders'
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'tryRest.wsgi.application'
 #     }
 # }
 
-DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL")) }
+DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL", "sqlite:///db.sqlite3")) }
 
 
 # Password validation
@@ -131,10 +131,10 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 STATIC_URL = '/static/'
 
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
-    )
+    ),
+    'PAGE_SIZE': 5
 }

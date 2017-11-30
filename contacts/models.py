@@ -15,6 +15,7 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 
 # Create your models here.
 class Contact(models.Model):
+    owner = models.ForeignKey('auth.User', related_name='contacts', on_delete=models.CASCADE)
     first_name = models.CharField(max_length=30, blank=False, null=False)
     last_name = models.CharField(max_length=30, blank=False, null=False)
     email = models.EmailField(max_length=100, blank=False, null=False)
