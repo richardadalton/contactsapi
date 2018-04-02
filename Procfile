@@ -1,1 +1,1 @@
-web: gunicorn tryRest.wsgi:application
+web: gunicorn contactsApi.wsgi:application

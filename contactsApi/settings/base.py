@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-ROOT_URLCONF = 'tryRest.urls'
+ROOT_URLCONF = 'contactsApi.urls'
 
 TEMPLATES = [
     {
