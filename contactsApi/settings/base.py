@@ -20,8 +20,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
 
 ALLOWED_HOSTS = ["127.0.0.1", '0.0.0.0']
 ALLOWED_HOSTS.append(os.environ.get("HOST"))
@@ -72,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tryRest.wsgi.application'
+WSGI_APPLICATION = 'contactsApi.wsgi.application'
 
 
 DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL", "sqlite:///db.sqlite3")) }
