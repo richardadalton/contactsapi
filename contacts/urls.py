@@ -8,6 +8,7 @@ schema_view = get_schema_view(title='Contact API')
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
 router.register(r'contacts', views.ContactViewSet, base_name='contacts')
+router.register(r'contacts_all', views.AllContactViewSet, base_name='contacts_all')
 router.register(r'users', views.UserViewSet, base_name='users')
 
 # The API URLs are now determined automatically by the router.
