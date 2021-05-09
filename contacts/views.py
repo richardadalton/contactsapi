@@ -33,7 +33,7 @@ class ContactViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self, *args, **kwargs):
         print(self.request.auth)
-        if self.request.user.is_authenticated():
+        if self.request.user.is_authenticated:
             return Contact.objects.all().filter(owner=self.request.user)
         else:
             return []
@@ -63,7 +63,7 @@ class AllContactViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self, *args, **kwargs):
         print(self.request.auth)
-        if self.request.user.is_authenticated():
+        if self.request.user.is_authenticated:
             return Contact.objects.all().filter(owner=self.request.user)
         else:
             return []
